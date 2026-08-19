@@ -86,7 +86,7 @@ export async function GET(
     doc.on("end", () => resolve(Buffer.concat(chunks)));
   });
 
-  return new NextResponse(buffer, {
+  return new NextResponse(buffer as any, {
     headers: {
       "Content-Type": "application/pdf",
       "Content-Disposition": `attachment; filename="${challan.challanNumber}.pdf"`,
